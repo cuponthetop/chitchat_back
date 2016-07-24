@@ -38,3 +38,8 @@ jspm_packages
 
 .vscode
 build
+
+apidoc
+apidocout
+
+config/production
