@@ -11,7 +11,7 @@ git commit -m "status_api autogen"
 
 git push origin $BRANCH
 
-out=$($apidoc -i ./lib/route/ -o apidocout/ 2>&1)
+out=$($apidoc -i ./lib/app/route/ -o apidocout/ 2>&1)
 status=$?
 if [ "$status" != "0" ]; then
     rm -rf apidocout/

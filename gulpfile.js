@@ -2,7 +2,7 @@
 
 var gulp = require('gulp'),
     path = require('path'),
-    boilerplate = require('./gulp-helper-boilerplate').use(gulp),
+    boilerplate = require('./util/gulp-helper-boilerplate').use(gulp),
     fs = require('fs');
     
 boilerplate({
