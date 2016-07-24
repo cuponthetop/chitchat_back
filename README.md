@@ -1,10 +1,10 @@
-# API Server for 사당행
+# API Server for ChitChat
 
 ## Status
 [![Build Status](https://travis-ci.org/cuponthetop/chitchat_back.png)](https://travis-ci.org/cuponthetop/chitchat_back)
 
 ## API Documentation
-Documentation can be found [here](http://cuponthetop.github.io/chitchat_back/).
+Documentation can be found [here](http://cuponthetop.github.io/chitchat_back/apidoc).
 
 ## 디렉토리 및 파일 설명
 
