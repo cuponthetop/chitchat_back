@@ -7,7 +7,7 @@ var status = require('../lib/app/server/status')
   ;
 
 var createStatusDoc = function () {
-  var location = path.resolve(__dirname, '../lib/route');
+  var location = path.resolve(__dirname, '../lib/app/route');
 
   var filestream = fs.createWriteStream(path.resolve(location, 'status_api.js'), {
     flags: 'w',
