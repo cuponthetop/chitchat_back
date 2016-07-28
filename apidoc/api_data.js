@@ -1,5 +1,933 @@
 define({ "api": [
   {
+    "type": "post",
+    "url": "/chatrooms",
+    "title": "add chatroom",
+    "name": "AddChatroom",
+    "group": "Chatroom",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": ":chatroomId",
+            "description": "<p>Chatroom's unique ID.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": ":userId",
+            "description": "<p>Chatroom's participants unique ID Array.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "targetGender",
+            "description": "<p>Chatroom's target gender(Male or Female or Both)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": ":dramaId",
+            "description": "<p>Chatroom's drama unique ID.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>IPv4 Address with Port</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "isUp",
+            "description": "<p>Chatroom is exist or not</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "lib/app/route/v1/chatroom.js",
+    "groupTitle": "Chatroom",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of request</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ChatroomAddFailed",
+            "description": "<p>(303) fail to add the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "AddTextToChatroomFailed",
+            "description": "<p>(312) fail to add the text to the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "InsertTextInDBFailed",
+            "description": "<p>(314) insert text in DB failed</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "EmptyText",
+            "description": "<p>(315) Text does not have any comment</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserAuthRequired",
+            "description": "<p>(111) user authentication is required</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserPermissionNotAllowed",
+            "description": "<p>(106) permission current user posesses is not enough to perform selected action</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/chatrooms/:chatroomId",
+    "title": "Get individual chatroom",
+    "name": "GetChatroom",
+    "group": "Chatroom",
+    "permission": [
+      {
+        "name": "owner"
+      },
+      {
+        "name": "admin"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": ":chatroomId",
+            "description": "<p>Chatroom's unique ID.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "lib/app/route/v1/chatroom.js",
+    "groupTitle": "Chatroom",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of request</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ChatroomNotFound",
+            "description": "<p>(301) Requested chatroom is not found</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "GetChatroomsFailed",
+            "description": "<p>(302) failed to get chatrooms</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "MembersOfChatroomGottenFailed",
+            "description": "<p>(306) fail to get members on the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "MemberEnterChatroomFailed",
+            "description": "<p>(307) fail to enter the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "MemberLeaveFailed",
+            "description": "<p>(308) fail to leave the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "MemberPermissionNotAllowed",
+            "description": "<p>(309) This chatroom is not allowed for member of different target gender or in not loged</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "NotAcceptedAddress",
+            "description": "<p>(310) This chatroom is not allowed for suspended member</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "TextsInChatroomGottenFailed",
+            "description": "<p>(311) fail to get texts on the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "TextNotFound",
+            "description": "<p>(313) Requested text was not found on DB</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserAuthRequired",
+            "description": "<p>(111) user authentication is required</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserPermissionNotAllowed",
+            "description": "<p>(106) permission current user posesses is not enough to perform selected action</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "delete",
+    "url": "chatrooms/:chatroomId",
+    "title": "Remove chatroom information",
+    "name": "RemoveChatroom",
+    "group": "Chatroom",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": ":chatroomId",
+            "description": "<p>Chatroom's unique ID.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "lib/app/route/v1/chatroom.js",
+    "groupTitle": "Chatroom",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of request</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ChatroomRemoveFailed",
+            "description": "<p>(305) fail to remove the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserAuthRequired",
+            "description": "<p>(111) user authentication is required</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserPermissionNotAllowed",
+            "description": "<p>(106) permission current user posesses is not enough to perform selected action</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "put",
+    "url": "chatrooms/:chatroomId",
+    "title": "Update chatroom information",
+    "name": "UpdateChatroom",
+    "group": "Chatroom",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": ":chatroomId",
+            "description": "<p>Chatroom's unique ID.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": ":userId",
+            "description": "<p>Chatroom's participants unique ID List.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "targetGender",
+            "description": "<p>Chatroom's target gender(Male or Female or Both)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": ":dramaId",
+            "description": "<p>Chatroom's drama unique ID.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>IPv4 Address with Port</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "isUp",
+            "description": "<p>Chatroom is exist or not</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "lib/app/route/v1/chatroom.js",
+    "groupTitle": "Chatroom",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of request</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ChatroomUpdateFailed",
+            "description": "<p>(304) fail to update the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserAuthRequired",
+            "description": "<p>(111) user authentication is required</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserPermissionNotAllowed",
+            "description": "<p>(106) permission current user posesses is not enough to perform selected action</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/dramas/:did",
+    "title": "Create Drama Information",
+    "name": "CreateDrama",
+    "group": "Drama",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": ":did",
+            "description": "<p>Drama's unique ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>Drama's title</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Date[]",
+            "optional": false,
+            "field": "airTime",
+            "description": "<p>Drama's air-time List</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": ":channelId",
+            "description": "<p>Drama's Channel ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": ":categoryId",
+            "description": "<p>Drama's Category ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": ":chatroomId",
+            "description": "<p>Drama's Chatrooms ID List</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "lib/app/route/v1/drama.js",
+    "groupTitle": "Drama",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of request</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "value",
+            "description": "<p>Drama Information</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value._id",
+            "description": "<p>Drama ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date[]",
+            "optional": false,
+            "field": "value.airTime",
+            "description": "<p>When Drama is being broadcasted</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value.title",
+            "description": "<p>Drama's title</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "value.channel",
+            "description": "<p>Drama's Channel Object</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "value.chatrooms",
+            "description": "<p>List of Drama's Chatrooms</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value.category",
+            "description": "<p>Drama's category</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserAuthRequired",
+            "description": "<p>(111) user authentication is required</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserPermissionNotAllowed",
+            "description": "<p>(106) permission current user posesses is not enough to perform selected action</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "DramaCreateFailed",
+            "description": "<p>(903) Drama create failed</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/dramas/:did",
+    "title": "Get Drama Information",
+    "name": "GetDrama",
+    "group": "Drama",
+    "permission": [
+      {
+        "name": "user"
+      },
+      {
+        "name": "admin"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": ":did",
+            "description": "<p>Drama's unique ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "lib/app/route/v1/drama.js",
+    "groupTitle": "Drama",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of request</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "value",
+            "description": "<p>Drama Information</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value._id",
+            "description": "<p>Drama ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date[]",
+            "optional": false,
+            "field": "value.airTime",
+            "description": "<p>When Drama is being broadcasted</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value.title",
+            "description": "<p>Drama's title</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "value.channel",
+            "description": "<p>Drama's Channel Object</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "value.chatrooms",
+            "description": "<p>List of Drama's Chatrooms</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value.category",
+            "description": "<p>Drama's category</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserAuthRequired",
+            "description": "<p>(111) user authentication is required</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserPermissionNotAllowed",
+            "description": "<p>(106) permission current user posesses is not enough to perform selected action</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "DramaNotFound",
+            "description": "<p>(901) Requested Drama was not found on DB</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "delete",
+    "url": "/dramas/:did",
+    "title": "Remove Drama Information",
+    "name": "RemoveDrama",
+    "group": "Drama",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": ":did",
+            "description": "<p>drama's unique ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "lib/app/route/v1/drama.js",
+    "groupTitle": "Drama",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of request</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "value",
+            "description": "<p>Drama Information</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value._id",
+            "description": "<p>Drama ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date[]",
+            "optional": false,
+            "field": "value.airTime",
+            "description": "<p>When Drama is being broadcasted</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value.title",
+            "description": "<p>Drama's title</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "value.channel",
+            "description": "<p>Drama's Channel Object</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "value.chatrooms",
+            "description": "<p>List of Drama's Chatrooms</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value.category",
+            "description": "<p>Drama's category</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserAuthRequired",
+            "description": "<p>(111) user authentication is required</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserPermissionNotAllowed",
+            "description": "<p>(106) permission current user posesses is not enough to perform selected action</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "DramaRemovalFailed",
+            "description": "<p>(904) Drama remove failed</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "put",
+    "url": "/dramas/:did",
+    "title": "Update Drama Information",
+    "name": "UpdateDrama",
+    "group": "Drama",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": ":did",
+            "description": "<p>Drama's unique ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>Drama's title</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Date[]",
+            "optional": false,
+            "field": "airTime",
+            "description": "<p>Drama's air-time List</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": ":channelId",
+            "description": "<p>Drama's Channel ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": ":categoryId",
+            "description": "<p>Drama's Category ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": ":chatroomId",
+            "description": "<p>Drama's Chatrooms ID List</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "lib/app/route/v1/drama.js",
+    "groupTitle": "Drama",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of request</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "value",
+            "description": "<p>Drama Information</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value._id",
+            "description": "<p>Drama ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date[]",
+            "optional": false,
+            "field": "value.airTime",
+            "description": "<p>When Drama is being broadcasted</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value.title",
+            "description": "<p>Drama's title</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "value.channel",
+            "description": "<p>Drama's Channel Object</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "value.chatrooms",
+            "description": "<p>List of Drama's Chatrooms</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value.category",
+            "description": "<p>Drama's category</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserAuthRequired",
+            "description": "<p>(111) user authentication is required</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserPermissionNotAllowed",
+            "description": "<p>(106) permission current user posesses is not enough to perform selected action</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "DramaUpdateFailed",
+            "description": "<p>(902) Drama update failed</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "get",
     "url": "/",
     "title": "Status Codes",
@@ -364,6 +1292,120 @@ define({ "api": [
             "optional": false,
             "field": "RateLimitExceeded",
             "description": "<p>(40004) Too many requests, please try again later.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ChatroomNotFound",
+            "description": "<p>(301) Requested chatroom is not found</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "GetChatroomsFailed",
+            "description": "<p>(302) failed to get chatrooms</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ChatroomAddFailed",
+            "description": "<p>(303) fail to add the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ChatroomUpdateFailed",
+            "description": "<p>(304) fail to update the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ChatroomRemoveFailed",
+            "description": "<p>(305) fail to remove the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "MembersOfChatroomGottenFailed",
+            "description": "<p>(306) fail to get members on the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "MemberEnterChatroomFailed",
+            "description": "<p>(307) fail to enter the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "MemberLeaveFailed",
+            "description": "<p>(308) fail to leave the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "MemberPermissionNotAllowed",
+            "description": "<p>(309) This chatroom is not allowed for member of different target gender or in not loged</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "NotAcceptedAddress",
+            "description": "<p>(310) This chatroom is not allowed for suspended member</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "TextsInChatroomGottenFailed",
+            "description": "<p>(311) fail to get texts on the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "AddTextToChatroomFailed",
+            "description": "<p>(312) fail to add the text to the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "TextNotFound",
+            "description": "<p>(313) Requested text was not found on DB</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "InsertTextInDBFailed",
+            "description": "<p>(314) insert text in DB failed</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "EmptyText",
+            "description": "<p>(315) Text does not have any comment</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "DramaNotFound",
+            "description": "<p>(901) Requested Drama was not found on DB</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "DramaUpdateFailed",
+            "description": "<p>(902) Drama update failed</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "DramaCreateFailed",
+            "description": "<p>(903) Drama create failed</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "DramaRemovalFailed",
+            "description": "<p>(904) Drama remove failed</p>"
           },
           {
             "group": "Error 4xx",
