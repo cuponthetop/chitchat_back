@@ -1044,248 +1044,8 @@ define({ "api": [
           {
             "group": "Error 4xx",
             "optional": false,
-            "field": "UnivNotFound",
-            "description": "<p>(201) Requested University is not found</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "UnivUpdateFailed",
-            "description": "<p>(202) University update failed</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "UnivRemovalFailed",
-            "description": "<p>(203) University removal failed</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "NotAcceptedEmailAddress",
-            "description": "<p>(204) none of universities we support accepts provided email domain</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "MultipleAcceptedEmailAddress",
-            "description": "<p>(205) many of universities we support accepts provided email domain</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "UserNotInThisUniversity",
-            "description": "<p>(206) current user is not member of requested university</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "InvalidEmailAddress",
-            "description": "<p>(207) not valid email address</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "InvalidEmailDomain",
-            "description": "<p>(208) not valid email domain</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "UnivAlreadyExisting",
-            "description": "<p>(209) university with given name is already existing</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "InvalidPageNumberRequested",
-            "description": "<p>(250) requested page number is invalid</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "InvalidSortRequested",
-            "description": "<p>(251) requested sort type is invalid</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "InvalidFilterRequested",
-            "description": "<p>(252) requested filter type is invalid</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "InvalidSearchFieldRequested",
-            "description": "<p>(253) one of requested search field type is invalid</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "InvalidAgeRequested",
-            "description": "<p>(254) requested post age range is invalid</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "EmptyQueryStringRequested",
-            "description": "<p>(255) requested query string is empty</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "InvalidPerPageRequested",
-            "description": "<p>(256) requested per page is invalid</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "PostNotFound",
-            "description": "<p>(400) Requested Post was not found on DB</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "CommentsOnPostGottenFailed",
-            "description": "<p>(401) fail to get comments on the post</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "UpdateVoteFailed",
-            "description": "<p>(402) fail to update votes on the post</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "GetPostsFailed",
-            "description": "<p>(403) failed to get posts</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "PostRemoveFailed",
-            "description": "<p>(405) failed to remove post</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "PostAddedFailed",
-            "description": "<p>(406) fail to add the post</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "TitleOfPostIsInvalid",
-            "description": "<p>(407) title of the post is continuum of whitespace and newline</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "TextOfPostIsInvalid",
-            "description": "<p>(408) text of the post is continuum group of whitespace and newline</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "PostVotedAlready",
-            "description": "<p>(409) the post is already voted by the user</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "UpdateVoteInDBFailed",
-            "description": "<p>(410) update vote in DB failed</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "PostOwnerCanNotVote",
-            "description": "<p>(411) one who voted is the post owner</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "CommentNotFound",
-            "description": "<p>(500) Requested comment was not found on DB</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "CommentRemovalFailed",
-            "description": "<p>(501) fail to remove the comment</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "CommentUpdateFailed",
-            "description": "<p>(502) fail to update the comment</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "CommentAddFailed",
-            "description": "<p>(503) failed to add comment</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "CommentReportFailed",
-            "description": "<p>(504) fail to report the comment</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "CommentReportAlready",
-            "description": "<p>(505) already report the comment</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "CommentOwnerCanNotVote",
-            "description": "<p>(506) one who voted is the comment owner</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
             "field": "AlreadyReported",
             "description": "<p>(600) user can only get reported once</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "AlreadyVoted",
-            "description": "<p>(601) user can only vote once</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "AddVoteFailed",
-            "description": "<p>(602) adding vote failed</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "AddReportFailed",
-            "description": "<p>(603) adding report failed</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "EmptyComment",
-            "description": "<p>(604) comment does not have any text</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "EmptyVote",
-            "description": "<p>(605) need to vote</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "WrongVote",
-            "description": "<p>(606) vote has to be either &quot;up&quot; or &quot;down&quot;</p>"
           },
           {
             "group": "Error 4xx",
@@ -1412,6 +1172,588 @@ define({ "api": [
             "optional": false,
             "field": "CouldNotFetchCount",
             "description": "<p>(700) error when calling db</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/users",
+    "title": "Create User",
+    "name": "CreateUser",
+    "group": "User",
+    "version": "0.0.0",
+    "filename": "lib/app/route/v1/user.js",
+    "groupTitle": "User",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of request</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserPermissionNotAllowed",
+            "description": "<p>(106) permission current user posesses is not enough to perform selected action</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserAlreadyLoggedIn",
+            "description": "<p>(112) user is trying to login but this userwas already logged in as an user</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserEmailAlreadyInUse",
+            "description": "<p>(116) provided user email is already in use</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "delete",
+    "url": "/users/:uid",
+    "title": "Delete User",
+    "name": "DeleteUser",
+    "group": "User",
+    "permission": [
+      {
+        "name": "admin"
+      },
+      {
+        "name": "owner"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": ":uid",
+            "description": "<p>User's unique ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "lib/app/route/v1/user.js",
+    "groupTitle": "User",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of request</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserAuthRequired",
+            "description": "<p>(111) user authentication is required</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserPermissionNotAllowed",
+            "description": "<p>(106) permission current user posesses is not enough to perform selected action</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserNotFound",
+            "description": "<p>(101) Requested User was not found on DB</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserRemovalFailed",
+            "description": "<p>(119) user removal failed</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "put",
+    "url": "/users/:uid/enter/:chatroomid",
+    "title": "Enter Specified Chatroom",
+    "name": "EnterChatroom",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": ":uid",
+            "description": "<p>User's unique ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": ":chatroomid",
+            "description": "<p>Chatroom's ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "lib/app/route/v1/user.js",
+    "groupTitle": "User",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of request</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserAuthRequired",
+            "description": "<p>(111) user authentication is required</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserPermissionNotAllowed",
+            "description": "<p>(106) permission current user posesses is not enough to perform selected action</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ChatroomNotFound",
+            "description": "<p>(301) Requested chatroom is not found</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ChatroomUpdateFailed",
+            "description": "<p>(304) fail to update the chatroom</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "MemberEnterChatroomFailed",
+            "description": "<p>(307) fail to enter the chatroom</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/users/:uid",
+    "title": "Get User Information",
+    "name": "GetUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": ":uid",
+            "description": "<p>User's unique ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "lib/app/route/v1/user.js",
+    "groupTitle": "User",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of request</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value._id",
+            "description": "<p>User ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value.name",
+            "description": "<p>User name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value.nickname",
+            "description": "<p>User nickname</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value.gender",
+            "description": "<p>User gender (male or female)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "value.likedDrama",
+            "description": "<p>List of Dramas User liked</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "value.joinedChatroom",
+            "description": "<p>List of Chatrooms User has joined</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "value.email",
+            "description": "<p>User email address</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "value.birthday",
+            "description": "<p>User birthday</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "value.numReported",
+            "description": "<p>User Reported Count</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserAuthRequired",
+            "description": "<p>(111) user authentication is required</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserPermissionNotAllowed",
+            "description": "<p>(106) permission current user posesses is not enough to perform selected action</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserNotFound",
+            "description": "<p>(101) Requested User was not found on DB</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/users",
+    "title": "Get All Users",
+    "name": "GetUsers",
+    "group": "User",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "lib/app/route/v1/user.js",
+    "groupTitle": "User",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of request</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserAuthRequired",
+            "description": "<p>(111) user authentication is required</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserPermissionNotAllowed",
+            "description": "<p>(106) permission current user posesses is not enough to perform selected action</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "put",
+    "url": "/users/:uid/like/:dramaid",
+    "title": "Like Specified Drama",
+    "name": "LikeDrama",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": ":uid",
+            "description": "<p>User's unique ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": ":dramaid",
+            "description": "<p>Drama ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "lib/app/route/v1/user.js",
+    "groupTitle": "User",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of request</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserAuthRequired",
+            "description": "<p>(111) user authentication is required</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserPermissionNotAllowed",
+            "description": "<p>(106) permission current user posesses is not enough to perform selected action</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "DramaNotFound",
+            "description": "<p>(901) Requested Drama was not found on DB</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "put",
+    "url": "/users/:uid/report",
+    "title": "Report User",
+    "name": "ReportUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": ":uid",
+            "description": "<p>User's unique ID to report</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "lib/app/route/v1/user.js",
+    "groupTitle": "User",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of request</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserAuthRequired",
+            "description": "<p>(111) user authentication is required</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserPermissionNotAllowed",
+            "description": "<p>(106) permission current user posesses is not enough to perform selected action</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserNotFound",
+            "description": "<p>(101) Requested User was not found on DB</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "AlreadyReported",
+            "description": "<p>(600) user can only get reported once</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "CantReportSelf",
+            "description": "<p>(117) user cannot report oneself</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "put",
+    "url": "/users/:uid",
+    "title": "Update User Information",
+    "name": "UpdateUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": ":uid",
+            "description": "<p>User's unique ID</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "admin"
+      },
+      {
+        "name": "owner"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "lib/app/route/v1/user.js",
+    "groupTitle": "User",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of request</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserAuthRequired",
+            "description": "<p>(111) user authentication is required</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserPermissionNotAllowed",
+            "description": "<p>(106) permission current user posesses is not enough to perform selected action</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserNotFound",
+            "description": "<p>(101) Requested User was not found on DB</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "UserUpdateFailed",
+            "description": "<p>(102) User update failed</p>"
           }
         ]
       }
