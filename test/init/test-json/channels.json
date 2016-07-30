@@ -1,0 +1,12 @@
+[
+  {
+    "_id": "111111111111111111111111",
+    "name": "testChannel1",
+    "logo": "testLogo.png"
+  }, 
+  {
+    "_id": "111111111111111111111112",
+    "name": "testChannel2",
+    "logo": "testLogo2.png"
+  }
+]
