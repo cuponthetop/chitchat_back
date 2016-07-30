@@ -6,7 +6,8 @@ var babel = require('gulp-babel'),
     streamCombiner = require('./gulp-helper-stream-combiner');
     
 var BABEL_OPTS = {
-  sourceMaps: 'inline'
+  sourceMaps: 'inline',
+  plugins: ['babel-polyfill', 'transform-async-to-generator']
 };
 
 var HEADER = `require(\'source-map-support\').install();\n\n`;
