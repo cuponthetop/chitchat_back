@@ -9,4 +9,4 @@ boilerplate({
   test: {
     files: ['${testDir}/**/*-specs.js']
   }
-});    
+});
