@@ -11,9 +11,9 @@ let config = {
   chat: '',
 };
 
-config = _.mapKeys(config, function (val, configName) {
+config = _.mapValues(config, function (val, configName) {
   var configPath = path.resolve(__dirname, nodeEnv, configName + '.js');
   return require(configPath);
 });
 
-module.exports.config = config;
+module.exports = config;

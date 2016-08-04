@@ -22,6 +22,7 @@
     "bluebird": "^3.4.1",
     "body-parser": "^1.15.2",
     "chitchat_chat": "cuponthetop/chitchat_chat",
+    "colors": "^1.1.2",
     "errorhandler": "^1.4.3",
     "express": "^4.14.0",
     "lodash": "^4.13.1",

@@ -4,4 +4,4 @@ let chat = {
 
 };
 
-module.exports.chat = chat;
+module.exports = chat;

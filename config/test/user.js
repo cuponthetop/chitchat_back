@@ -4,4 +4,4 @@ let user = {
 
 };
 
-module.exports.user = user;
+module.exports = user;
