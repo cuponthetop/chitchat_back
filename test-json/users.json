@@ -1,0 +1,15 @@
+[
+  {
+    "_id": "411111111111111111111111",
+    "fbid": "testfbid",
+    "name": "testName1",
+    "nickname": "test1",
+    "gender": "male",
+    "admin": false,
+    "likedDrama": ["311111111111111111111111"],
+    "joinedChatroom": ["211111111111111111111111"],
+    "email": "test1@test.com",
+    "birthday": "2016-01-01T08:11:10.000Z",
+    "reported": []
+  }
+]

@@ -1,7 +1,7 @@
 "use strict";
 
-import 'path';
-import _ from 'lodash';
+var path = require('path');
+var _ = require('lodash');
 
 let nodeEnv = process.env.NODE_ENV || 'development';
 
@@ -16,4 +16,4 @@ config = _.mapKeys(config, function (val, configName) {
   return require(configPath);
 });
 
-export default config;
+module.exports.config = config;

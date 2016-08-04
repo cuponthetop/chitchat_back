@@ -7,7 +7,8 @@ var babel = require('gulp-babel'),
     
 var BABEL_OPTS = {
   sourceMaps: 'inline',
-  plugins: ['babel-polyfill', 'transform-async-to-generator']
+  presets: ["es2015"],
+  plugins: ['babel-polyfill', 'transform-async-to-generator', 'transform-runtime']
 };
 
 var HEADER = `require(\'source-map-support\').install();\n\n`;

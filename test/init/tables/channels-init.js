@@ -1,7 +1,7 @@
 "use strict";
 
 import '../../../lib/app/model/channel';
-import '../channels.json';
+import '../../../../test-json/channels.json';
 
 export default async function () {
   return await channelModel.remove({}).exec()
