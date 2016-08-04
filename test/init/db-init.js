@@ -1,10 +1,10 @@
 "use strict";
 
 import { connect, disconnect } from '../../lib/app/util/db-helper';
-import './tables/users-init';
-import './tables/dramas-init';
-import './tables/chatrooms-init';
-import './tables/channels-init';
+import { default as userInit } from './tables/users-init';
+import { default as dramaInit } from './tables/dramas-init';
+import { default as chatroomInit } from './tables/chatrooms-init';
+import { default as channelInit } from './tables/channels-init';
 import B from 'bluebird';
 
 let jobs = [
