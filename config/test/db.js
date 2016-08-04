@@ -7,4 +7,4 @@ let db = {
   password: ''
 };
 
-export default db;
+module.exports = db;

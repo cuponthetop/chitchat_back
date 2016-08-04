@@ -4,4 +4,4 @@ let user = {
 
 };
 
-export default user;
+module.exports = user;

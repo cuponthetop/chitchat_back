@@ -1,7 +1,7 @@
 "use strict";
 
 import '../../../lib/app/model/drama';
-import '../dramas.json';
+import '../../../../test-json/dramas.json';
 
 export default async function () {
   return await dramaModel.remove({}).exec()
