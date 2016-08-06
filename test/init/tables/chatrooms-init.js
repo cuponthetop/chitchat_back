@@ -1,9 +1,9 @@
 "use strict";
 
-import '../../../lib/app/model/chatroom';
-import '../../../../test-json/chatrooms.json';
+import { default as chatroomModel } from '../../../lib/app/model/chatroom';
+let chatroomData = require('../../../../test-json/chatrooms.json');
 
-export default async function () {
-  return await chatroomModel.remove({}).exec()
-                .then(chatroomModel.create(chatroomData));
+export async function chatroomInit() {
+  await chatroomModel.remove({}).exec();
+  await chatroomModel.create(chatroomData);
 };
