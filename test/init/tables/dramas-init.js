@@ -1,9 +1,9 @@
 "use strict";
 
-import '../../../lib/app/model/drama';
-import '../../../../test-json/dramas.json';
+import { default as dramaModel } from '../../../lib/app/model/drama';
+let dramaData = require('../../../../test-json/dramas.json');
 
-export default async function () {
-  return await dramaModel.remove({}).exec()
-                .then(dramaModel.create(dramaData));
+export async function dramaInit() {
+  await dramaModel.remove({}).exec();
+  await dramaModel.create(dramaData);
 };

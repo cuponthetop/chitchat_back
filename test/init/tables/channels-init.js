@@ -1,9 +1,9 @@
 "use strict";
 
-import '../../../lib/app/model/channel';
-import '../../../../test-json/channels.json';
+import { default as channelModel } from '../../../lib/app/model/channel';
+let channelData = require('../../../../test-json/channels.json');
 
-export default async function () {
-  return await channelModel.remove({}).exec()
-                .then(channelModel.create(channelData));
+export async function channelInit() {
+  await channelModel.remove({}).exec();
+  await channelModel.create(channelData);
 };

@@ -1,9 +1,9 @@
 "use strict";
 
-import '../../../lib/app/model/user';
-import '../../../../test-json/users.json';
+import { default as userModel } from '../../../lib/app/model/user';
+let userData = require('../../../../test-json/users.json');
 
-export default async function () {
-  return await userModel.remove({}).exec()
-                .then(userModel.create(userData));
+export async function userInit() {
+  await userModel.remove({}).exec();
+  await userModel.create(userData);
 };
