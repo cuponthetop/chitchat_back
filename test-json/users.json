@@ -2,6 +2,7 @@
   {
     "_id": "411111111111111111111111",
     "fbid": "testfbid",
+    "token": "testtoken",
     "name": "testName1",
     "nickname": "test1",
     "gender": "male",
