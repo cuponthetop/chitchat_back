@@ -2,9 +2,8 @@
   {
     "_id": "211111111111111111111111",
     "participants": [],
+    "participant_counter": 0,
     "targetGender": "male",
-    "targetDrama": "311111111111111111111111",
-    "address": "testroom-m",
-    "isUp": true
+    "targetDrama": "311111111111111111111111"
   }
 ]
