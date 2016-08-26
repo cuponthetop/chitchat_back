@@ -3,7 +3,7 @@
 import { connect, disconnect } from '../../lib/app/util/db-helper';
 import { userInit } from './tables/users-init';
 import { dramaInit } from './tables/dramas-init';
-import { chatroomInit } from './tables/chatrooms-init';
+import { insertChatrooms } from './tables/chatrooms-init';
 import { channelInit } from './tables/channels-init';
 import B from 'bluebird';
 
@@ -14,7 +14,7 @@ async function main() {
     userInit,
     channelInit,
     dramaInit,
-    chatroomInit,
+    insertChatrooms,
     disconnect
   ];
 
@@ -29,13 +29,5 @@ async function main() {
   }
 
 }
-// jobs.forEach(async function (fn) {
-//   console.log(fn);
-//   return await fn();
-// })
-// .catch(console.log)
-// .finally(() => {
-//   process.exit(0);
-// });
 
 export default main();
