@@ -525,7 +525,8 @@
     "title": "쇼! 음악중심",
     "channel": "MBC",
     "chatrooms": [ ],
-    "category": ""
+    "category": "",
+    "en":"Show_Eumakjungsim"
   },
   {
     "airTime": [
@@ -627,7 +628,9 @@
     "title": "비정상회담",
     "channel": "JTBC",
     "chatrooms": [ ],
-    "category": ""
+    "category": "",
+    "en":"Naemaeumui_Kkotbi"
+
   },
   {
     "airTime": [
@@ -645,7 +648,8 @@
     "title": "걸스피릿",
     "channel": "JTBC",
     "chatrooms": [ ],
-    "category": ""
+    "category": "",
+    "en":"Yeojaui_Bimil"
   },
   {
     "airTime": [
@@ -760,7 +764,8 @@
     "title": "삼시세끼(고창편)",
     "channel": "tvN",
     "chatrooms": [ ],
-    "category": ""
+    "category": "",
+    "en":"Okjunghwa"
   },
   {
     "airTime": [
